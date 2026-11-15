@@ -1,0 +1,43 @@
+PODS:
+  - CocoaLumberjack (3.10.0):
+    - CocoaLumberjack/Core (= 3.10.0)
+  - CocoaLumberjack/Core (3.10.0)
+  - dartnative_ios (1.0.0):
+    - FlexLayout (= 2.0.10)
+  - dartnative_svg (1.0.0):
+    - SVGKit (~> 3.0)
+  - DartNativeCore (1.0.0)
+  - FlexLayout (2.0.10)
+  - SVGKit (3.0.0):
+    - CocoaLumberjack (~> 3.0)
+
+DEPENDENCIES:
+  - dartnative_ios (from `.symlinks/plugins/dartnative_ios/ios`)
+  - dartnative_svg (from `.symlinks/plugins/dartnative_svg/ios`)
+  - DartNativeCore (from `DartNative`)
+
+SPEC REPOS:
+  trunk:
+    - CocoaLumberjack
+    - FlexLayout
+    - SVGKit
+
+EXTERNAL SOURCES:
+  dartnative_ios:
+    :path: ".symlinks/plugins/dartnative_ios/ios"
+  dartnative_svg:
+    :path: ".symlinks/plugins/dartnative_svg/ios"
+  DartNativeCore:
+    :path: DartNative
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 12545b2899dcaeec69b82c27b174042259c1ec27
+  dartnative_ios: c5e063a6bc126b1f88144c1c16ff9c200caf1e9e
+  dartnative_svg: 929c945783588fa3fdc4c32855144d4d825780b7
+  DartNativeCore: 225e49d9e35e234bcadc6b81586fc4275a1006ee
+  FlexLayout: ea94491c923485f7f28891cb5b10245d22df380b
+  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
+
+PODFILE CHECKSUM: 0eb83f38c0038ca753c95effc43e8a0e67ec8c2c
+
+COCOAPODS: 1.16.2
