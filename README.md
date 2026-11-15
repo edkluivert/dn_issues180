@@ -39,7 +39,7 @@ gaps. The rest are listed below.
 | 13 | Removing an OverlayEntry after its screen is gone asserts | Still there (same stack trace; no error in Flutter) |
 | 18 | Icons are Material Symbols Rounded (outlined) | Still there |
 | 21 | LayoutBuilder constraints larger than the space given | Still there (Flutter: 718 / 718, DartNative: 840 / 720) |
-| 25 | Android: a BoxShadow lifts its view above later siblings | Still there (found on 1.8.0) |
+| 25 | Android: a box with two BoxShadows covers the Stack children after it | Still there (found on 1.8.0; one BoxShadow is fine, iOS is fine) |
 
 ## Not in the app
 

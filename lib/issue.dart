@@ -30,6 +30,7 @@ class Issue {
     this.run,
     this.status,
     this.statusNote,
+    this.foundIn = '1.5.0',
   });
 
   final int number;
@@ -63,6 +64,9 @@ class Issue {
   /// unless [statusNote] says otherwise). Null: not checked.
   final Status? status;
   final String? statusNote;
+
+  /// The DartNative release the issue was found on.
+  final String foundIn;
 
   bool get isLive =>
       repro != null || reproScreen != null || run != null;
@@ -193,7 +197,7 @@ class IssueScreen extends StatelessWidget {
           ],
           const SizedBox(height: 14),
           _Fact('Flutter', i.flutter),
-          _Fact('DartNative (1.5.0, when found)', i.dartnative),
+          _Fact('DartNative ${i.foundIn}, when found', i.dartnative),
           if (i.workaround != null) _Fact('Workaround', i.workaround!),
           if (i.note != null) _Fact('Note', i.note!),
           if (i.repro != null) ...[

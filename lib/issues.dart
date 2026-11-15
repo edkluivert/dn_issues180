@@ -207,18 +207,23 @@ final sections = <IssueSection>[
   IssueSection('Found on 1.8.0 (Android)', [
     const Issue(
       number: 25,
+      foundIn: '1.8.0',
       status: Status.still,
-      statusNote: 'Seen on the Pixel 9 Pro emulator (Android 16). iOS is not affected.',
-      title: 'Android: a BoxShadow lifts its view above later siblings',
-      flutter: 'Stack children paint in order: the badge is on top of the '
-          'shadowed avatar.',
-      dartnative: 'On Android a BoxShadow is view elevation, so the '
-          'shadowed avatar covers the badge after it. iOS is fine.',
+      statusNote: 'Seen on the Pixel 9 Pro emulator (Android 16).',
+      title: 'Android: a box with two BoxShadows covers the Stack children '
+          'after it',
+      flutter: 'Stack children paint in order: the camera badge is on top '
+          'of the avatar, whatever its shadow.',
+      dartnative: 'On Android, when the avatar\'s decoration has two or '
+          'more BoxShadows, the avatar covers the badge placed after it in '
+          'the Stack. With one BoxShadow (even with a spreadRadius) the '
+          'badge stays on top.',
       workaround: 'Give the badge BoxShadow(color: Color(0x01000000), '
-          'blurRadius: larger than the other). Alpha 0 is skipped and does '
-          'not work.',
-      note: 'Found in LevelSchool on the Pixel 9 Pro emulator (API 36). '
-          'Look at this one on Android.',
+          'blurRadius: 32), larger than the avatar\'s. A shadow with alpha 0 '
+          'does not work.',
+      note: 'Found in LevelSchool: its card shadow (--sh2) has two layers, '
+          'and the profile photo hid its camera badge. Look at this one on '
+          'Android.',
       repro: shadowZRepro,
       fixed: shadowZFixed,
     ),

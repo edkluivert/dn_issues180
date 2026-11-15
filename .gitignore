@@ -81,3 +81,7 @@ flutter_twin/.dart_tool/
 flutter_twin/ios/Pods/
 flutter_twin/ios/Flutter/ephemeral/
 pubspec_overrides.yaml
+flutter_twin/ios/Flutter/Generated.xcconfig
+flutter_twin/ios/Flutter/flutter_export_environment.sh
+flutter_twin/ios/Podfile.lock
+flutter_twin/.flutter-plugins-dependencies

@@ -515,13 +515,12 @@ class _LayoutHeightScreenState extends State<LayoutHeightScreen> {
 
 // #25 Android: BoxShadow is elevation, so a shadowed sibling covers --------
 
-Widget _avatar() => DecoratedBox(
-  decoration: const BoxDecoration(
-    shape: BoxShape.circle,
-    boxShadow: [
-      BoxShadow(color: Color(0x4D000000), blurRadius: 30, offset: Offset(0, 8)),
-    ],
-  ),
+const _one = [
+  BoxShadow(color: Color(0x4D000000), blurRadius: 30, offset: Offset(0, 8)),
+];
+
+Widget _avatar(List<BoxShadow> shadow) => DecoratedBox(
+  decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: shadow),
   child: Container(
     width: 80,
     height: 80,
@@ -551,14 +550,37 @@ Widget _badge({required List<BoxShadow>? shadow}) => Positioned(
   ),
 );
 
-Widget shadowZRepro(BuildContext _) => Center(
-  child: Stack(children: [_avatar(), _badge(shadow: null)]),
+Widget _probe(String label, Widget child) => Column(
+  children: [
+    child,
+    const SizedBox(height: 6),
+    Text(label, style: const TextStyle(fontSize: 10, color: muted)),
+  ],
+);
+
+const _two = [
+  BoxShadow(color: Color(0x0A000000), blurRadius: 4, offset: Offset(0, 2)),
+  BoxShadow(color: Color(0x4D000000), blurRadius: 30, offset: Offset(0, 8)),
+];
+
+Widget shadowZRepro(BuildContext _) => Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    _probe(
+      'One BoxShadow',
+      Stack(children: [_avatar(_one), _badge(shadow: null)]),
+    ),
+    _probe(
+      'Two BoxShadows',
+      Stack(children: [_avatar(_two), _badge(shadow: null)]),
+    ),
+  ],
 );
 
 Widget shadowZFixed(BuildContext _) => Center(
   child: Stack(
     children: [
-      _avatar(),
+      _avatar(_two),
       _badge(
         shadow: const [BoxShadow(color: Color(0x01000000), blurRadius: 32)],
       ),
